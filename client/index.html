@@ -20,19 +20,28 @@
 
     const stop = document.createElement('button');
     stop.textContent = "Stop Stream";
+    
+    const records = document.createElement('button');
+    records.textContent = "Get Records";
 
     div.appendChild(canvas);
     div.appendChild(start);
     div.appendChild(stop);
+    div.appendChild(records);
     content.appendChild(div);
 
     
     start.addEventListener("click", () => {
-      fetch("http://localhost:8080/start-stream?port=9000&url=rtsp://admin:Tri123456@192.168.17.12/ISAPI/Streaming/Channels/101.m3u&key=portaria2");
+      fetch("http://localhost:8080/start-stream?port=9000&url=rtsp://admin:Tri123456@192.168.17.9/ISAPI/Streaming/Channels/101.m3u&key=portaria2");
     });
 
     stop.addEventListener("click", () => {
       fetch("http://localhost:8080/stop-stream?port=9000");
+    });
+
+    
+    records.addEventListener("click", () => {
+      fetch("http://localhost:8080/recordsHikVision?port=9000&url=rtsp://admin:Tri123456@192.168.17.9/Streaming/tracks/101/&startTime=20211205&startHour=130000&endTime=20211205&endHour=130100&key=portaria2");
     });
 
     player = new JSMpeg.Player('ws://localhost:9000', {
