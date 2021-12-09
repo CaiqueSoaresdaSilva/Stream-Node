@@ -23,6 +23,8 @@ const startStream = (name, streamUrl, wsPort) =>{
         ffmpegOptions: {
             "-stats": "",
             "-r": 30,
+            "-s": "720x480",
+            "-bf": 0
         },
     });
 
@@ -37,7 +39,7 @@ const startRecordStream = (name, streamUrl, wsPort) =>{
         wsPort,
         ffmpegOptions: {
             "-stats": "",
-            "-r": 60,
+            "-r": 20,
         },
     });
 
