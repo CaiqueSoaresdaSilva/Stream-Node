@@ -44,7 +44,7 @@
       fetch("http://localhost:8080/recordsHikVision?port=9000&url=rtsp://admin:Tri123456@192.168.17.9/Streaming/tracks/101/&startTime=20211205&startHour=130000&endTime=20211205&endHour=130100&key=portaria2");
     });
 
-    player = new JSMpeg.Player('ws://localhost:9000', {
+    var player = new JSMpeg.Player('ws://localhost:9000', {
       canvas,
     })	
 </script>

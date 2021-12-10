@@ -23,8 +23,8 @@ const startStream = (name, streamUrl, wsPort) =>{
         ffmpegOptions: {
             "-stats": "",
             "-r": 30,
-            "-s": "720x480",
-            "-bf": 0
+            "-s": "640x480",
+            "-b:v": "64k"
         },
     });
 
@@ -67,7 +67,7 @@ app.get("/start-stream", (req, res) => {
     startStream(key, url, port);
 
     res.json({
-        message: "Started Stream"
+        message: "Started Stream on the Port: " + port + " with Cam: " + key
     });
 
 });
